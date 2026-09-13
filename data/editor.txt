@@ -1,0 +1,3 @@
+# Default editor, set via `omarchy-default-editor <name>`.
+# One of: code, cursor, zed, sublime_text, helix, vim, emacs, nvim
+code

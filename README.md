@@ -1,15 +1,16 @@
 # omarchy-dotfiles
 
 My personal setup on top of a fresh [Omarchy](https://omarchy.org) install:
-what to remove, which extra community themes to add, and which extra tools
-to install. Reproducible on a new machine with `./install.sh --all`.
+what to remove, which extra community themes to add, which extra tools to
+install, the default editor, and the BNL VPN keybinding. Reproducible on a
+new machine with `./install.sh --all`.
 
 ## Usage
 
 ```bash
 git clone https://github.com/mpmdean/omarchy-dotfiles.git
 cd omarchy-dotfiles
-./install.sh --all          # or --remove / --themes / --extras individually
+./install.sh --all          # or --remove / --themes / --extras / --editor / --vpn individually
 ```
 
 Every step is idempotent - safe to re-run, it skips anything already
@@ -21,10 +22,10 @@ installed/removed. Pass `--yes` to skip the confirmation prompt.
 |---|---|
 | **Basecamp** (webapp) | Bundled by default (Omarchy's creator also makes Basecamp); not used here. |
 | **Xournal++** (`xournalpp`) | Bundled by default; not used here. |
+| **HEY** (webapp) | Bundled by default (same 37signals family as Basecamp); not used here. |
 
 Add more lines to `data/remove.txt` any time (`webapp:<Name>` or
-`pkg:<name>`). `HEY` is left as a commented-out suggestion in that file -
-same family as Basecamp, not removed yet since it wasn't asked for.
+`pkg:<name>`).
 
 ## Extra themes (`data/themes.txt`)
 
@@ -62,3 +63,35 @@ Add more tools by appending a line to `data/extras.txt`
 (`name|pacman-package|plugin-git-url|plugin-id|description`; leave the
 plugin fields empty for a plain package). Note that Omarchy plugins run as
 unsandboxed code inside `omarchy-shell` - only add ones you've reviewed.
+
+## Default editor (`data/editor.txt`)
+
+Sets the Omarchy default editor (`omarchy-default-editor`, which drives
+`$EDITOR`/`omarchy-launch-editor`) to **VS Code**. Change `data/editor.txt`
+to switch it (one of `code`, `cursor`, `zed`, `sublime_text`, `helix`,
+`vim`, `emacs`, `nvim`).
+
+Note this doesn't touch `~/.config/mimeapps.list`, so double-clicking a text
+file in the file manager still opens whatever's set there (currently
+Neovim) - that's a separate, GUI-level default not covered by this repo yet.
+
+## BNL VPN (`scripts/install-vpn.sh`)
+
+Installs the `bnl-vpn` toggle and wires up `SUPER+SHIFT+V` in
+`~/.config/hypr/bindings.lua`. The actual script, the privileged
+`bnl-vpn-helper`, and its `sudoers.d` rule live in the private
+[mpmdean/VPN_helper](https://github.com/mpmdean/VPN_helper) repo (kept out
+of this public one since it's BNL/employer-specific and touches sudo) -
+`install-vpn.sh` clones it (via `gh`'s git credential helper) and runs its
+installer, which needs sudo for the root-owned helper and validates the
+sudoers rule with `visudo -cf` before installing it.
+
+Credentials are never stored in either repo - after installing, run once:
+
+```bash
+secret-tool store --label='BNL VPN username' service bnl-vpn field username
+secret-tool store --label='BNL VPN password' service bnl-vpn field password
+```
+
+Then `SUPER+SHIFT+V` connects (opening a small floating terminal for the
+DUO second-factor prompt) or disconnects.
