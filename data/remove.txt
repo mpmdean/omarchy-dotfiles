@@ -1,0 +1,11 @@
+# Default Omarchy apps to remove on a fresh install.
+# Format: <kind>:<name>
+#   webapp:<Name>   -> desktop launcher removed with omarchy-webapp-remove
+#   pkg:<name>      -> package removed with yay -Rns
+#
+# Add more lines here any time you find another default app you don't use.
+# Other default bundled apps you might also want to reconsider later:
+# webapp:HEY (37signals webapp, same family as Basecamp)
+
+webapp:Basecamp
+pkg:xournalpp

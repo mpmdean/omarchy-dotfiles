@@ -1,0 +1,4 @@
+# Extra tools beyond the base Omarchy install.
+# Format: <name>|<pacman-package>|<plugin-git-url-or-empty>|<plugin-id-or-empty>|<description>
+
+hyprmoncfg|hyprmoncfg|https://github.com/crmne/omarchy-hyprmoncfg.git|crmne.hyprmoncfg|Terminal-first monitor configurator + auto-switching daemon for Hyprland, with an Omarchy bar-widget panel for visual multi-monitor layout editing (profiles that reapply themselves on hotplug/lid/suspend)

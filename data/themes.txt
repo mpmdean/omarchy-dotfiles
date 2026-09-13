@@ -1,0 +1,28 @@
+# Extra Omarchy themes, one per line: <name>|<git-url>
+# Installed with `omarchy-theme-install <git-url>`, which clones straight
+# into ~/.config/omarchy/themes/<name>.
+#
+# seashells / seashells-light are handled separately in install-themes.sh
+# (their upstream installer downloads a fixed file list rather than cloning
+# the whole repo - see the note in scripts/install-themes.sh).
+
+akaito|https://github.com/stannorbvb-cmd/akaito
+ayu-light|https://github.com/fdidron/omarchy-ayu-light-theme
+azure|https://github.com/tahfizhabib/omarchy-azure-theme
+corporate|https://github.com/defer/omarchy-corporate-theme
+dayfox|https://github.com/defer/omarchy-dayfox-theme
+desert-gleam|https://github.com/avis3nna/desert-gleam
+gornergrat-station|https://gitlab.com/bhavabhuthi/omarchy-gornergrat-station-theme.git
+gruvbox-light|https://github.com/Kushal0924/omarchy-gruvbox-light-theme
+harbor|https://github.com/HANCORE-linux/omarchy-harbor-theme
+infernium|https://github.com/RiO7MAKK3R/omarchy-infernium-theme
+latch|https://github.com/atif-1402/omarchy-latch-theme
+mapquest|https://github.com/ItsABigIgloo/omarchy-mapquest-theme
+milkmatcha-light|https://github.com/hipsterusername/omarchy-milkmatcha-light-theme
+roseofdune|https://github.com/HANCORE-linux/omarchy-roseofdune-theme
+snow|https://github.com/bjarneo/omarchy-snow-theme
+solarized-light|https://github.com/dfrico/omarchy-solarized-light-theme
+thegreek|https://github.com/HANCORE-linux/omarchy-thegreek-theme
+unicorn-dream|https://github.com/Deoxizn/omarchy-unicorn-dream-theme
+white-air|https://github.com/o-200/omarchy-white-air-theme
+whitegold|https://github.com/HANCORE-linux/omarchy-whitegold-theme
