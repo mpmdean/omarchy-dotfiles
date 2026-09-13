@@ -3,18 +3,21 @@
 My personal setup on top of a fresh [Omarchy](https://omarchy.org) install:
 what to remove, which extra community themes to add, which extra tools to
 install, the default editor, and the BNL VPN keybinding. Reproducible on a
-new machine with `./install.sh --all`.
+new machine with `./install.sh`.
 
 ## Usage
 
 ```bash
 git clone https://github.com/mpmdean/omarchy-dotfiles.git
 cd omarchy-dotfiles
-./install.sh --all          # or --remove / --themes / --extras / --editor / --vpn individually
+./install.sh                 # runs every step below, in order
+./install.sh install-vpn     # or name specific steps (scripts/<name>.sh) to run just those
 ```
 
 Every step is idempotent - safe to re-run, it skips anything already
-installed/removed. Pass `--yes` to skip the confirmation prompt.
+installed/removed. Destructive bits (removing a package, adding a plugin)
+go through `yay`/`omarchy-plugin-add`'s own confirmation prompts rather than
+a prompt of this repo's own.
 
 ## Removed from the base install (`data/remove.txt`)
 

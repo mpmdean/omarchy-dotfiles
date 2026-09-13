@@ -4,7 +4,7 @@
 set -euo pipefail
 cd "$(dirname "${BASH_SOURCE[0]}")/.."
 
-editor="$(grep -v '^#' data/editor.txt | grep -v '^\s*$' | head -1)"
+editor="$(grep -vE '^\s*(#|$)' data/editor.txt | head -1)"
 current="$(omarchy-default-editor)"
 
 echo "==> Setting default editor"

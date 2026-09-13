@@ -7,12 +7,8 @@ DATA_FILE="data/remove.txt"
 
 echo "==> Removing default Omarchy apps"
 
-while IFS= read -r line; do
-  line="${line%%#*}"
-  [[ -z "${line// /}" ]] && continue
-  kind="${line%%:*}"
-  name="${line#*:}"
-  name="${name#"${name%%[![:space:]]*}"}"
+while IFS=: read -r kind name; do
+  [[ -z "$kind" || "$kind" == \#* ]] && continue
 
   case "$kind" in
   webapp)
@@ -26,7 +22,7 @@ while IFS= read -r line; do
   pkg)
     if pacman -Qq "$name" &>/dev/null; then
       echo "  - removing package: $name"
-      yay -Rns --noconfirm "$name"
+      yay -Rns "$name"
     else
       echo "  - package already removed: $name"
     fi

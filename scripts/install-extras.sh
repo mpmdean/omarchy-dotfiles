@@ -11,9 +11,7 @@ echo "    Note: Omarchy plugins run as unsandboxed code inside omarchy-shell."
 echo "    Only entries you've reviewed and trust belong in data/extras.txt."
 
 while IFS='|' read -r name pkg plugin_url plugin_id desc; do
-  line="$name"
-  line="${line%%#*}"
-  [[ -z "${line// /}" ]] && continue
+  [[ -z "$name" || "$name" == \#* ]] && continue
 
   echo "  - $name: $desc"
 
@@ -21,7 +19,7 @@ while IFS='|' read -r name pkg plugin_url plugin_id desc; do
     if pacman -Qq "$pkg" &>/dev/null; then
       echo "    package '$pkg' already installed"
     else
-      yay -S --noconfirm "$pkg"
+      yay -S "$pkg"
     fi
   fi
 
@@ -29,7 +27,7 @@ while IFS='|' read -r name pkg plugin_url plugin_id desc; do
     if omarchy-plugin-list --json 2>/dev/null | jq -e --arg id "$plugin_id" 'any(.[]; .id == $id)' >/dev/null; then
       echo "    plugin '$plugin_id' already added"
     else
-      omarchy-plugin-add "$plugin_url" --enable --yes
+      omarchy-plugin-add "$plugin_url" --enable
     fi
   fi
 done <"$DATA_FILE"

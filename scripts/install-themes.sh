@@ -14,10 +14,7 @@ echo "==> Installing extra Omarchy themes"
 original_theme="$(omarchy-theme-current 2>/dev/null || true)"
 
 while IFS='|' read -r name url; do
-  line="$name"
-  line="${line%%#*}"
-  [[ -z "${line// /}" ]] && continue
-  [[ -z "$url" ]] && continue
+  [[ -z "$name" || "$name" == \#* ]] && continue
 
   if [[ -d "$THEMES_DIR/$name" ]]; then
     echo "  - already installed: $name"
