@@ -19,6 +19,7 @@ infernium|https://github.com/RiO7MAKK3R/omarchy-infernium-theme
 latch|https://github.com/atif-1402/omarchy-latch-theme
 mapquest|https://github.com/ItsABigIgloo/omarchy-mapquest-theme
 milkmatcha-light|https://github.com/hipsterusername/omarchy-milkmatcha-light-theme
+qianli|https://github.com/xguot/omarchy-qianli-theme
 roseofdune|https://github.com/HANCORE-linux/omarchy-roseofdune-theme
 snow|https://github.com/bjarneo/omarchy-snow-theme
 solarized-light|https://github.com/dfrico/omarchy-solarized-light-theme

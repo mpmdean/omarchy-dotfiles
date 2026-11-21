@@ -37,7 +37,7 @@ Community themes cloned into `~/.config/omarchy/themes/` via
 
 akaito, ayu-light, azure, corporate, dayfox, desert-gleam,
 gornergrat-station, gruvbox-light, harbor, infernium, latch, mapquest,
-milkmatcha-light, roseofdune, seashells / seashells-light, snow,
+milkmatcha-light, qianli, roseofdune, seashells / seashells-light, snow,
 solarized-light, thegreek, unicorn-dream, white-air, whitegold.
 
 Sources are in `data/themes.txt`, one GitHub/GitLab repo per theme.
