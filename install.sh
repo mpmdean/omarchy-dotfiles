@@ -7,7 +7,7 @@
 set -euo pipefail
 cd "$(dirname "${BASH_SOURCE[0]}")"
 
-all_steps=(remove-defaults install-themes install-extras set-default-editor install-vpn)
+all_steps=(remove-defaults install-webapps install-themes install-extras set-default-editor install-vpn)
 steps=("$@")
 [[ ${#steps[@]} -eq 0 ]] && steps=("${all_steps[@]}")
 

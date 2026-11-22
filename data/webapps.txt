@@ -1,0 +1,4 @@
+# Extra web apps to add as desktop launchers via omarchy-webapp-install.
+# Format: <Name>|<url>|<icon-url>
+
+Outlook|https://outlook.office.com/mail/|https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/microsoft-outlook.png

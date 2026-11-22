@@ -1,7 +1,7 @@
 # omarchy-dotfiles
 
 My personal setup on top of a fresh [Omarchy](https://omarchy.org) install:
-what to remove, which extra community themes to add, which extra tools to
+what to remove, which web apps to add, which extra community themes to add, which extra tools to
 install, the default editor, and the BNL VPN keybinding. Reproducible on a
 new machine with `./install.sh`.
 
@@ -29,6 +29,15 @@ a prompt of this repo's own.
 
 Add more lines to `data/remove.txt` any time (`webapp:<Name>` or
 `pkg:<name>`).
+
+## Extra web apps (`data/webapps.txt`)
+
+Desktop launchers added with `omarchy-webapp-install`:
+
+- **Outlook** - Microsoft 365 mail at `https://outlook.office.com/mail/`.
+
+Add more with a `Name|url|icon-url` line (icons from
+[dashboard-icons](https://github.com/homarr-labs/dashboard-icons) work well).
 
 ## Extra themes (`data/themes.txt`)
 
