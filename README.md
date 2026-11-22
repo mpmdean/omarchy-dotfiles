@@ -156,3 +156,66 @@ secret-tool store --label='BNL VPN password' service bnl-vpn field password
 
 Then `SUPER+SHIFT+V` connects (opening a small floating terminal for the
 DUO second-factor prompt) or disconnects.
+
+## Superwhisper dictation fixes (manual, not scripted yet)
+
+Dictation worked in terminals but often didn't arrive in **VS Code** or the
+**Outlook** webapp. Superwhisper types through the fcitx5 input method,
+and the log (`journalctl --user -u superwhisper`) showed
+`fcitx5 commit declined (no_input_context)`. Chromium and Electron apps
+don't talk to the Wayland input method by default, and the paste fallback
+didn't reliably land either.
+
+**1. Turn on the Wayland input method in Chromium/Electron:**
+
+- `~/.config/chromium-flags.conf` (covers Chromium and every webapp,
+  including Outlook): append
+  ```
+  --enable-wayland-ime
+  --wayland-text-input-version=3
+  ```
+- `~/.config/code-flags.conf` (read by the `visual-studio-code-bin`
+  launcher):
+  ```
+  --ozone-platform=wayland
+  --enable-wayland-ime
+  --wayland-text-input-version=3
+  ```
+  `code .` then warns that these options are "not in the list of known
+  options". That's harmless: VS Code still passes them through to Chromium.
+
+Fully quit and reopen Chromium and VS Code to pick these up.
+
+**2. Don't use Alt in the dictation shortcut.** With the flags in place,
+VS Code still lost its input-method focus at the moment the old shortcut
+`Ctrl+Alt+Space` was pressed, while dictation started from the CLI with no
+keys pressed went straight in. Most likely the Alt press (Electron moves
+focus to the menu bar on Alt) is what drops it. A Left Ctrl hold key gave
+false triggers during ordinary Ctrl shortcuts, so the hold-to-talk key is
+now **Right Ctrl**:
+
+```bash
+superwhisper shortcuts set hold "RightControl"
+```
+
+**3. Give the Magic Keyboard a Right Ctrl.** It has no Right Ctrl key, so
+`~/.config/hypr/input.lua` maps its right Command key to Right Ctrl, for
+that keyboard only. Superwhisper's shortcuts are Hyprland binds, so they
+see the remapped key. The thumb position matches the Framework keyboard's
+Right Ctrl:
+
+```lua
+hl.device({
+  name = "<magic-keyboard-name>",   -- from `hyprctl devices`
+  kb_layout = "us",
+  kb_options = "omarchy:shift_caps_compose,ctrl:swap_rwin_rctl",
+})
+```
+
+The trade-off is that right Command on the Magic Keyboard no longer acts
+as Super. Use left Command for Super bindings.
+
+**Debugging tip:** to see whether an app's text field is connected to
+fcitx5, run
+`busctl --user call org.fcitx.Fcitx5 /controller org.fcitx.Fcitx.Controller1 DebugInfo`
+and look for that app's entry with `focus:1`.
