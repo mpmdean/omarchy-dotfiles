@@ -34,9 +34,10 @@ Add more lines to `data/remove.txt` any time (`webapp:<Name>` or
 
 Desktop launchers added with `omarchy-webapp-install`:
 
-- **Outlook** - Microsoft 365 mail at `https://outlook.office.com/mail/`.
+- **Outlook** - Microsoft 365 mail at `https://outlook.office.com/mail/`,
+  bound to `SUPER + SHIFT + E` (replacing the default HEY Email binding).
 
-Add more with a `Name|url|icon-url` line (icons from
+Add more with a `Name|url|icon-url|keybinding` line (keybinding optional; icons from
 [dashboard-icons](https://github.com/homarr-labs/dashboard-icons) work well).
 
 ## Extra themes (`data/themes.txt`)

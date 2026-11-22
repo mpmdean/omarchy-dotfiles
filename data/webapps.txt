@@ -1,4 +1,6 @@
 # Extra web apps to add as desktop launchers via omarchy-webapp-install.
-# Format: <Name>|<url>|<icon-url>
+# Format: <Name>|<url>|<icon-url>|<keybinding-or-empty>
+# A keybinding (e.g. "SUPER + SHIFT + E") is written to
+# ~/.config/hypr/bindings.lua with o.rebind, replacing any default on that key.
 
-Outlook|https://outlook.office.com/mail/|https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/microsoft-outlook.png
+Outlook|https://outlook.office.com/mail/|https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/microsoft-outlook.png|SUPER + SHIFT + E
