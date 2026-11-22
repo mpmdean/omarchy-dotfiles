@@ -1,0 +1,14 @@
+# Cloud <-> local folder syncs run by rclone on a systemd --user timer.
+# Format: <name>|<mode>|<rclone-source>|<local-dest>|<interval>
+#   name     - unit name suffix: rclone-sync-<name>.{service,timer}
+#   mode     - bisync: two-way (changes and deletions go both directions;
+#                      files changed on both sides are kept as
+#                      <file>.conflict1 / <file>.conflict2)
+#              sync:   one-way mirror, cloud -> local only
+#   source   - <remote>:<path>; the remote is created with `rclone config`
+#              on first run if it doesn't exist yet
+#   dest     - local directory (~ is expanded)
+#   interval - how often to re-sync (systemd time span, e.g. 10min, 1h)
+# Local files that a sync deletes or overwrites are moved to
+# ~/.local/share/rclone-sync-backup/<name>/ rather than lost.
+icloud-documents|bisync|icloud:Documents|~/Documents|10min

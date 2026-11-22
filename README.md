@@ -97,6 +97,41 @@ Note this doesn't touch `~/.config/mimeapps.list`, so double-clicking a text
 file in the file manager still opens whatever's set there (currently
 Neovim) - that's a separate, GUI-level default not covered by this repo yet.
 
+## iCloud Documents sync (`data/rclone-sync.txt`)
+
+Keeps iCloud Drive's `Documents` folder and `~/Documents` in sync **both
+ways** with [rclone bisync](https://rclone.org/bisync/), re-syncing every
+10 minutes on a systemd user timer (`rclone-sync-icloud-documents.timer`).
+
+- **Two-way.** New files, edits and **deletions** on either side reach the
+  other side. Deleting a file here deletes it from iCloud, and so from your
+  Mac and iPhone too.
+- **Conflicts:** if a file changed on both sides between syncs, both
+  copies are kept as `<file>.conflict1` / `<file>.conflict2`. Pick one and
+  delete the other.
+- **Local safety net:** local files that bisync deletes or overwrites are
+  moved to `~/.local/share/rclone-sync-backup/icloud-documents/` first.
+  rclone also aborts any run that would delete more than half of the files.
+- **Baseline:** the install script runs a one-time `bisync --resync
+  --resync-mode newer` first. That merges the two sides without deleting
+  anything, and where a file differs the newer copy wins. If bisync ever
+  aborts and asks for a resync (you'll get a failure notification), delete
+  `~/.local/state/rclone-sync/icloud-documents.resynced` and re-run
+  `./install.sh install-rclone-sync`.
+- **First run is interactive.** If there's no `icloud:` remote yet, the
+  script opens `rclone config`. Choose `n` and the name `icloud`, then the
+  type `iclouddrive`, and enter your Apple ID, password and 2FA code. iCloud
+  requires **Advanced Data Protection off** and **"Access iCloud Data on
+  the Web" on**.
+- **Re-authenticating:** Apple's trust token expires after about 30 days.
+  When it does, a failed sync shows a desktop notification. Fix it with
+  `rclone config reconnect icloud:`.
+- Logs: `journalctl --user -u rclone-sync-icloud-documents`. Sync now:
+  `systemctl --user start rclone-sync-icloud-documents`.
+
+To add another folder, add a `name|bisync-or-sync|remote:path|local-dir|interval`
+line (`sync` = one-way, cloud -> local only).
+
 ## BNL VPN (`scripts/install-vpn.sh`)
 
 Installs the `bnl-vpn` toggle and wires up `SUPER+SHIFT+V` in
