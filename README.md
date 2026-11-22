@@ -61,6 +61,13 @@ directly, delete `.claude/` from it before it sits under `~`.
   matched by monitor make/model/serial and reapplied automatically on
   hotplug, lid open/close, and resume. Installed as both the `hyprmoncfg`
   pacman package and the `crmne.hyprmoncfg` Omarchy plugin.
+- **[openconnect](https://www.infradead.org/openconnect/)** - open-source
+  client for Cisco AnyConnect, GlobalProtect, Pulse and Fortinet SSL VPNs.
+  Plain pacman package, no plugin.
+- **[hyprmon](https://github.com/erans/hyprmon)** - TUI multi-monitor
+  profile manager for Hyprland: arrange monitors visually, set
+  scale/rotation/mirroring, save and switch profiles. Installed from the
+  AUR as `hyprmon-bin` (packaged by the upstream author), no plugin.
 
 Add more tools by appending a line to `data/extras.txt`
 (`name|pacman-package|plugin-git-url|plugin-id|description`; leave the
