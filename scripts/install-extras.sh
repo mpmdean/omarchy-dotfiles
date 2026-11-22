@@ -10,7 +10,7 @@ echo "==> Installing extras"
 echo "    Note: Omarchy plugins run as unsandboxed code inside omarchy-shell."
 echo "    Only entries you've reviewed and trust belong in data/extras.txt."
 
-while IFS='|' read -r name pkg plugin_url plugin_id desc; do
+while IFS='|' read -r -u3 name pkg plugin_url plugin_id desc; do
   [[ -z "$name" || "$name" == \#* ]] && continue
 
   echo "  - $name: $desc"
@@ -30,4 +30,4 @@ while IFS='|' read -r name pkg plugin_url plugin_id desc; do
       omarchy-plugin-add "$plugin_url" --enable
     fi
   fi
-done <"$DATA_FILE"
+done 3<"$DATA_FILE"

@@ -7,7 +7,7 @@ DATA_FILE="data/remove.txt"
 
 echo "==> Removing default Omarchy apps"
 
-while IFS=: read -r kind name; do
+while IFS=: read -r -u3 kind name; do
   [[ -z "$kind" || "$kind" == \#* ]] && continue
 
   case "$kind" in
@@ -31,4 +31,4 @@ while IFS=: read -r kind name; do
     echo "  ! unknown entry kind '$kind' for '$name', skipping" >&2
     ;;
   esac
-done <"$DATA_FILE"
+done 3<"$DATA_FILE"

@@ -13,7 +13,7 @@ echo "==> Installing extra Omarchy themes"
 
 original_theme="$(omarchy-theme-current 2>/dev/null || true)"
 
-while IFS='|' read -r name url; do
+while IFS='|' read -r -u3 name url; do
   [[ -z "$name" || "$name" == \#* ]] && continue
 
   if [[ -d "$THEMES_DIR/$name" ]]; then
@@ -22,7 +22,7 @@ while IFS='|' read -r name url; do
   fi
   echo "  - installing: $name  ($url)"
   omarchy-theme-install "$url"
-done <"$DATA_FILE"
+done 3<"$DATA_FILE"
 
 # seashells / seashells-light: the repo's own installer only downloads a
 # fixed, reviewed list of theme files (see the setup script at
