@@ -1,6 +1,7 @@
 # Extra tools beyond the base Omarchy install.
-# Format: <name>|<pacman-package>|<plugin-git-url-or-empty>|<plugin-id-or-empty>|<description>
+# Format: <name>|<pacman-package>|<plugin-git-url-or-empty>|<plugin-id-or-empty>|<user-service-or-empty>|<description>
+# A user-service is a systemd --user unit to enable --now after install.
 
-hyprmoncfg|hyprmoncfg|https://github.com/crmne/omarchy-hyprmoncfg.git|crmne.hyprmoncfg|Terminal-first monitor configurator + auto-switching daemon for Hyprland, with an Omarchy bar-widget panel for visual multi-monitor layout editing (profiles that reapply themselves on hotplug/lid/suspend)
-openconnect|openconnect|||Open client for Cisco AnyConnect / GlobalProtect / Pulse / Fortinet SSL VPNs
-hyprmon|hyprmon-bin|||TUI multi-monitor profile manager for Hyprland (erans/hyprmon): drag monitors into place, set scale/rotation/mirroring, save and switch profiles
+hyprmoncfg|hyprmoncfg|https://github.com/crmne/omarchy-hyprmoncfg.git|crmne.hyprmoncfg|hyprmoncfgd.service|Terminal-first monitor configurator + auto-switching daemon for Hyprland, with an Omarchy bar-widget panel for visual multi-monitor layout editing (profiles that reapply themselves on hotplug/lid/suspend)
+openconnect|openconnect||||Open client for Cisco AnyConnect / GlobalProtect / Pulse / Fortinet SSL VPNs
+hyprmon|hyprmon-bin||||TUI multi-monitor profile manager for Hyprland (erans/hyprmon): drag monitors into place, set scale/rotation/mirroring, save and switch profiles

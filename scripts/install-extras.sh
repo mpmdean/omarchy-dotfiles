@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Installs the extra tools listed in data/extras.txt: a pacman package and,
-# where applicable, its matching Omarchy shell plugin.
+# where applicable, its matching Omarchy shell plugin and a systemd --user
+# service to enable.
 set -euo pipefail
 cd "$(dirname "${BASH_SOURCE[0]}")/.."
 
@@ -10,7 +11,7 @@ echo "==> Installing extras"
 echo "    Note: Omarchy plugins run as unsandboxed code inside omarchy-shell."
 echo "    Only entries you've reviewed and trust belong in data/extras.txt."
 
-while IFS='|' read -r -u3 name pkg plugin_url plugin_id desc; do
+while IFS='|' read -r -u3 name pkg plugin_url plugin_id service desc; do
   [[ -z "$name" || "$name" == \#* ]] && continue
 
   echo "  - $name: $desc"
@@ -28,6 +29,14 @@ while IFS='|' read -r -u3 name pkg plugin_url plugin_id desc; do
       echo "    plugin '$plugin_id' already added"
     else
       omarchy-plugin-add "$plugin_url" --enable
+    fi
+  fi
+
+  if [[ -n "$service" ]]; then
+    if systemctl --user is-enabled --quiet "$service" && systemctl --user is-active --quiet "$service"; then
+      echo "    service '$service' already enabled and running"
+    else
+      systemctl --user enable --now "$service"
     fi
   fi
 done 3<"$DATA_FILE"

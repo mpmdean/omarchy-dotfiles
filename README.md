@@ -60,7 +60,8 @@ directly, delete `.claude/` from it before it sits under `~`.
   bar-widget plugin for editing multi-monitor layouts visually. Profiles are
   matched by monitor make/model/serial and reapplied automatically on
   hotplug, lid open/close, and resume. Installed as both the `hyprmoncfg`
-  pacman package and the `crmne.hyprmoncfg` Omarchy plugin.
+  pacman package and the `crmne.hyprmoncfg` Omarchy plugin, with the
+  `hyprmoncfgd` user service enabled for the auto-switching.
 - **[openconnect](https://www.infradead.org/openconnect/)** - open-source
   client for Cisco AnyConnect, GlobalProtect, Pulse and Fortinet SSL VPNs.
   Plain pacman package, no plugin.
@@ -70,9 +71,10 @@ directly, delete `.claude/` from it before it sits under `~`.
   AUR as `hyprmon-bin` (packaged by the upstream author), no plugin.
 
 Add more tools by appending a line to `data/extras.txt`
-(`name|pacman-package|plugin-git-url|plugin-id|description`; leave the
-plugin fields empty for a plain package). Note that Omarchy plugins run as
-unsandboxed code inside `omarchy-shell` - only add ones you've reviewed.
+(`name|pacman-package|plugin-git-url|plugin-id|user-service|description`;
+leave the plugin/service fields empty for a plain package). Note that
+Omarchy plugins run as unsandboxed code inside `omarchy-shell` - only add
+ones you've reviewed.
 
 ## Default editor (`data/editor.txt`)
 
