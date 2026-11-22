@@ -79,6 +79,10 @@ directly, delete `.claude/` from it before it sits under `~`.
   profile manager for Hyprland: arrange monitors visually, set
   scale/rotation/mirroring, save and switch profiles. Installed from the
   AUR as `hyprmon-bin` (packaged by the upstream author), no plugin.
+- **[ONLYOFFICE](https://www.onlyoffice.com/desktop.aspx)** - desktop
+  office suite (documents, spreadsheets, presentations, PDFs) with good
+  Microsoft Office format compatibility. Installed from the AUR as
+  `onlyoffice-bin` (the official upstream build), no plugin.
 
 Add more tools by appending a line to `data/extras.txt`
 (`name|pacman-package|plugin-git-url|plugin-id|user-service|description`;
