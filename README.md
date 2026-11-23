@@ -89,6 +89,9 @@ directly, delete `.claude/` from it before it sits under `~`.
   Includes `latexmk`, so `latexmk -pdf file.tex` (or `-xelatex`/`-lualatex`)
   builds everything, rerunning as needed. Plus **biber**, the biblatex
   backend that latexmk calls automatically. About 3 GB installed.
+- **[Obsidian](https://obsidian.md/)** - Markdown knowledge base and
+  note-taking app that works on top of a local folder (vault) of plain-text
+  notes. Plain pacman package from `extra`, no plugin.
 
 Add more tools by appending a line to `data/extras.txt`
 (`name|pacman-package|plugin-git-url|plugin-id|user-service|description`;

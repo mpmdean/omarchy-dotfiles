@@ -8,3 +8,4 @@ hyprmon|hyprmon-bin||||TUI multi-monitor profile manager for Hyprland (erans/hyp
 onlyoffice|onlyoffice-bin||||ONLYOFFICE Desktop Editors: office suite for Word/Excel/PowerPoint documents, spreadsheets, presentations and PDFs
 texlive|texlive-meta||||Full TeX Live (every collection except the language packs), including latexmk, pdflatex/xelatex/lualatex, ConTeXt and the extra fonts
 biber|biber||||Bibliography backend for biblatex (latexmk runs it automatically)
+obsidian|obsidian||||Obsidian: Markdown knowledge base / note-taking app that works on a local folder of plain-text notes
