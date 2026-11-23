@@ -6,3 +6,5 @@ hyprmoncfg|hyprmoncfg|https://github.com/crmne/omarchy-hyprmoncfg.git|crmne.hypr
 openconnect|openconnect||||Open client for Cisco AnyConnect / GlobalProtect / Pulse / Fortinet SSL VPNs
 hyprmon|hyprmon-bin||||TUI multi-monitor profile manager for Hyprland (erans/hyprmon): drag monitors into place, set scale/rotation/mirroring, save and switch profiles
 onlyoffice|onlyoffice-bin||||ONLYOFFICE Desktop Editors: office suite for Word/Excel/PowerPoint documents, spreadsheets, presentations and PDFs
+texlive|texlive-meta||||Full TeX Live (every collection except the language packs), including latexmk, pdflatex/xelatex/lualatex, ConTeXt and the extra fonts
+biber|biber||||Bibliography backend for biblatex (latexmk runs it automatically)

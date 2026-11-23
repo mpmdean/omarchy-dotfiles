@@ -83,6 +83,12 @@ directly, delete `.claude/` from it before it sits under `~`.
   office suite (documents, spreadsheets, presentations, PDFs) with good
   Microsoft Office format compatibility. Installed from the AUR as
   `onlyoffice-bin` (the official upstream build), no plugin.
+- **[TeX Live](https://tug.org/texlive/)** - a full LaTeX install via the
+  `texlive-meta` package, which pulls in every TeX Live collection except
+  the language packs (`texlive-lang*`; add those individually if needed).
+  Includes `latexmk`, so `latexmk -pdf file.tex` (or `-xelatex`/`-lualatex`)
+  builds everything, rerunning as needed. Plus **biber**, the biblatex
+  backend that latexmk calls automatically. About 3 GB installed.
 
 Add more tools by appending a line to `data/extras.txt`
 (`name|pacman-package|plugin-git-url|plugin-id|user-service|description`;
