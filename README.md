@@ -92,6 +92,10 @@ directly, delete `.claude/` from it before it sits under `~`.
 - **[Obsidian](https://obsidian.md/)** - Markdown knowledge base and
   note-taking app that works on top of a local folder (vault) of plain-text
   notes. Plain pacman package from `extra`, no plugin.
+- **[VESTA](https://jp-minerals.org/vesta/)** - 3D visualization of crystal
+  structures, volumetric data such as electron/nuclear densities, and crystal
+  morphologies; reads CIF, POSCAR, cube and many other formats. From the AUR
+  (`vesta`), no plugin.
 
 Add more tools by appending a line to `data/extras.txt`
 (`name|pacman-package|plugin-git-url|plugin-id|user-service|description`;
