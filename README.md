@@ -45,10 +45,12 @@ Add more with a `Name|url|icon-url|keybinding` line (keybinding optional; icons 
 Community themes cloned into `~/.config/omarchy/themes/` via
 `omarchy-theme-install`, matching what's on this machine now:
 
-akaito, ayu-light, azure, corporate, dayfox, desert-gleam,
-gornergrat-station, gruvbox-light, harbor, infernium, latch, mapquest,
-milkmatcha-light, qianli, roseofdune, seashells / seashells-light, snow,
-solarized-light, thegreek, unicorn-dream, white-air, whitegold.
+akaito, ayu-light, azure, corporate, dayfox, desert-gleam, forest-green,
+forest-night, gornergrat-station, green-garden, gruvbox-light, harbor,
+infernium, jade-horse, latch, mapquest, milkmatcha-light, nz-forest,
+nz-mountains-and-lakes, osaka-tree, ozark, qianli, retro-stripes,
+roseofdune, sakura, seashells / seashells-light, snow, solarized-light,
+thegreek, unicorn-dream, white-air, whitegold.
 
 Sources are in `data/themes.txt`, one GitHub/GitLab repo per theme.
 
