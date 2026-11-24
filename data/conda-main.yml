@@ -1,0 +1,30 @@
+# The `main` conda environment, created/updated by scripts/install-conda-env.sh.
+# Add packages here and rerun `./install.sh install-conda-env`.
+name: main
+channels:
+  - conda-forge
+dependencies:
+  - python=3.13
+  # Core numerics
+  - numpy
+  - scipy
+  - sympy
+  - pandas
+  - xarray
+  - h5py
+  - dask              # includes distributed + the dashboard
+  - numba
+  # Fitting / analysis
+  - lmfit
+  - scikit-learn
+  - scikit-image
+  # Plotting
+  - matplotlib
+  - ipympl            # %matplotlib widget: interactive figures in Jupyter
+  # Jupyter
+  - jupyterlab
+  - ipykernel
+  - ipywidgets
+  # Utilities
+  - tqdm
+  - pip

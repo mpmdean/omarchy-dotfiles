@@ -122,6 +122,26 @@ already unpacked there, the download is skipped, because VESTA keeps its
 settings (`VESTA.ini`) in that folder. To upgrade, delete the folder and
 rerun. Change `VERSION` in the script to pick another release.
 
+## Conda `main` environment (`data/conda-main.yml`)
+
+`scripts/install-conda-env.sh` creates a conda environment called `main`
+with a general scientific Python stack from conda-forge:
+
+- **Numerics:** numpy, scipy, sympy, pandas, xarray, h5py, dask (with
+  distributed and its dashboard), numba
+- **Fitting/analysis:** lmfit, scikit-learn, scikit-image
+- **Plotting:** matplotlib, plus ipympl for interactive figures in Jupyter
+  (`%matplotlib widget`)
+- **Jupyter:** jupyterlab, ipykernel, ipywidgets
+- **Utilities:** tqdm, pip
+
+Python is pinned to 3.13. If `~/miniforge3` doesn't exist yet, the script
+first installs [Miniforge](https://github.com/conda-forge/miniforge) there
+from the official installer, after checking its checksum. On a re-run it
+updates the existing env in place: packages newly added to the file get
+installed, and nothing you installed yourself is removed. Use it with
+`conda activate main`.
+
 ## Default editor (`data/editor.txt`)
 
 Sets the Omarchy default editor (`omarchy-default-editor`, which drives
