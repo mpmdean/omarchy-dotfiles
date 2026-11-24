@@ -9,4 +9,3 @@ onlyoffice|onlyoffice-bin||||ONLYOFFICE Desktop Editors: office suite for Word/E
 texlive|texlive-meta||||Full TeX Live (every collection except the language packs), including latexmk, pdflatex/xelatex/lualatex, ConTeXt and the extra fonts
 biber|biber||||Bibliography backend for biblatex (latexmk runs it automatically)
 obsidian|obsidian||||Obsidian: Markdown knowledge base / note-taking app that works on a local folder of plain-text notes
-vesta|vesta||||VESTA: 3D visualization of crystal structures, volumetric data (electron/nuclear densities) and crystal morphologies

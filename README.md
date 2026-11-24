@@ -92,16 +92,26 @@ directly, delete `.claude/` from it before it sits under `~`.
 - **[Obsidian](https://obsidian.md/)** - Markdown knowledge base and
   note-taking app that works on top of a local folder (vault) of plain-text
   notes. Plain pacman package from `extra`, no plugin.
-- **[VESTA](https://jp-minerals.org/vesta/)** - 3D visualization of crystal
-  structures, volumetric data such as electron/nuclear densities, and crystal
-  morphologies; reads CIF, POSCAR, cube and many other formats. From the AUR
-  (`vesta`), no plugin.
 
 Add more tools by appending a line to `data/extras.txt`
 (`name|pacman-package|plugin-git-url|plugin-id|user-service|description`;
 leave the plugin/service fields empty for a plain package). Note that
 Omarchy plugins run as unsandboxed code inside `omarchy-shell` - only add
 ones you've reviewed.
+
+## VESTA (`scripts/install-vesta.sh`)
+
+[VESTA](https://jp-minerals.org/vesta/) shows crystal structures, volumetric
+data such as electron/nuclear densities, and crystal morphologies in 3D. It
+reads CIF, POSCAR, cube and many other formats. The script installs it the way
+the [official download page](https://jp-minerals.org/vesta/en/download.html)
+describes, not from the AUR. It downloads the stable Linux x86_64 GTK3 tarball
+(ver. 3.5.8, which needs GTK 3.22 or newer) and unpacks it into
+`~/.local/opt/VESTA-gtk3`. It then links `vesta`/`VESTA` into `~/.local/bin`
+and adds a `vesta.desktop` launcher entry. No root is needed. If VESTA is
+already unpacked there, the download is skipped, because VESTA keeps its
+settings (`VESTA.ini`) in that folder. To upgrade, delete the folder and
+rerun. Change `VERSION` in the script to pick another release.
 
 ## Default editor (`data/editor.txt`)
 
