@@ -94,6 +94,13 @@ directly, delete `.claude/` from it before it sits under `~`.
 - **[Obsidian](https://obsidian.md/)** - Markdown knowledge base and
   note-taking app that works on top of a local folder (vault) of plain-text
   notes. Plain pacman package from `extra`, no plugin.
+- **[Blender](https://www.blender.org/)** - 3D modelling, animation,
+  rendering and compositing suite. Plain pacman package from `extra`, no
+  plugin. Alongside it: `python` and `python-pip` (for scripting and add-on
+  work), `git`, and `git-lfs` for repos with large binary assets such as
+  `.blend` files. After the extras are installed, `install-extras.sh` runs
+  `git lfs install --skip-repo`, which registers the LFS filters in
+  `~/.gitconfig` without touching any repository.
 
 Add more tools by appending a line to `data/extras.txt`
 (`name|pacman-package|plugin-git-url|plugin-id|user-service|description`;

@@ -40,3 +40,9 @@ while IFS='|' read -r -u3 name pkg plugin_url plugin_id service desc; do
     fi
   fi
 done 3<"$DATA_FILE"
+
+# Register the Git LFS filters in ~/.gitconfig (no repo hooks). Idempotent.
+if command -v git-lfs &>/dev/null; then
+  echo "  - git-lfs: registering global filters (git lfs install --skip-repo)"
+  git lfs install --skip-repo
+fi

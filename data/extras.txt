@@ -9,3 +9,8 @@ onlyoffice|onlyoffice-bin||||ONLYOFFICE Desktop Editors: office suite for Word/E
 texlive|texlive-meta||||Full TeX Live (every collection except the language packs), including latexmk, pdflatex/xelatex/lualatex, ConTeXt and the extra fonts
 biber|biber||||Bibliography backend for biblatex (latexmk runs it automatically)
 obsidian|obsidian||||Obsidian: Markdown knowledge base / note-taking app that works on a local folder of plain-text notes
+blender|blender||||Blender: 3D modelling, animation, rendering and compositing suite
+python|python||||Python 3 interpreter (Blender scripting/add-on development)
+python-pip|python-pip||||pip, the Python package installer
+git|git||||Git version control
+git-lfs|git-lfs||||Git Large File Storage, for repos that keep big binary assets (e.g. .blend files); its filters are registered in ~/.gitconfig after install
