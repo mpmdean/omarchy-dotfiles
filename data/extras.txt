@@ -14,3 +14,4 @@ python|python||||Python 3 interpreter (Blender scripting/add-on development)
 python-pip|python-pip||||pip, the Python package installer
 git|git||||Git version control
 git-lfs|git-lfs||||Git Large File Storage, for repos that keep big binary assets (e.g. .blend files); its filters are registered in ~/.gitconfig after install
+typst|typst||||Typst: markup-based typesetting system for the sciences (a faster, simpler alternative to LaTeX)

@@ -101,6 +101,11 @@ directly, delete `.claude/` from it before it sits under `~`.
   `.blend` files. After the extras are installed, `install-extras.sh` runs
   `git lfs install --skip-repo`, which registers the LFS filters in
   `~/.gitconfig` without touching any repository.
+- **[Typst](https://typst.app/)** - markup-based typesetting system for
+  the sciences: a fast, simpler alternative to LaTeX with readable syntax,
+  built-in math, and incremental compilation. Plain pacman package from
+  `extra`, no plugin. `typst compile file.typ` builds a PDF, and
+  `typst watch file.typ` rebuilds on every save.
 
 Add more tools by appending a line to `data/extras.txt`
 (`name|pacman-package|plugin-git-url|plugin-id|user-service|description`;
