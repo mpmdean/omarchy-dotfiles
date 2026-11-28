@@ -260,7 +260,22 @@ secret-tool store --label='BNL VPN password' service bnl-vpn field password
 Then `SUPER+SHIFT+V` connects (opening a small floating terminal for the
 DUO second-factor prompt) or disconnects.
 
-## Superwhisper dictation fixes (manual, not scripted yet)
+## Superwhisper dictation (`data/dictation.txt`)
+
+`scripts/set-dictation.sh` applies the three fixes below from
+`data/dictation.txt`: the Superwhisper shortcuts (hold **Right Ctrl**;
+the toggle shortcut stays `Ctrl+Alt+Space`), the input-method flag lines
+for Chromium and VS Code (only lines that are missing get appended), and the
+Magic Keyboard remap. The remap goes in a block marked
+`omarchy-dotfiles: dictation keyboard remap` in `~/.config/hypr/input.lua`
+and is replaced on re-runs. The Magic Keyboard's Hyprland name includes its
+owner's name, so it isn't stored here: the script adds the remap for every
+connected keyboard whose name contains `magic-keyboard`. If none is
+connected, it leaves any existing remap alone; connect the keyboard and
+re-run `./install.sh set-dictation` to add it. Superwhisper itself isn't
+installed by this step (use `omarchy install dictation superwhisper`).
+
+Why each fix is needed:
 
 Dictation worked in terminals but often didn't arrive in **VS Code** or the
 **Outlook** webapp. Superwhisper types through the fcitx5 input method,
@@ -314,6 +329,9 @@ hl.device({
   kb_options = "omarchy:shift_caps_compose,ctrl:swap_rwin_rctl",
 })
 ```
+
+The script fills in the name, and takes the layout and base options from
+the current Hyprland `input` settings.
 
 The trade-off is that right Command on the Magic Keyboard no longer acts
 as Super. Use left Command for Super bindings.

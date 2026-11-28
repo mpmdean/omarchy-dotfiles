@@ -1,0 +1,17 @@
+# Superwhisper dictation setup - see README "Superwhisper dictation".
+#
+# Superwhisper shortcuts: shortcut|<toggle|hold|cancel|mouse|send>|<chord>
+shortcut|hold|RightControl
+shortcut|toggle|Ctrl+Alt+Space
+#
+# Lines added to ~/.config/<file> so Chromium, its web apps and VS Code
+# accept text from the Wayland input method: flag|<file>|<line>
+flag|chromium-flags.conf|--enable-wayland-ime
+flag|chromium-flags.conf|--wayland-text-input-version=3
+flag|code-flags.conf|--ozone-platform=wayland
+flag|code-flags.conf|--enable-wayland-ime
+flag|code-flags.conf|--wayland-text-input-version=3
+#
+# Extra XKB option for each connected keyboard whose Hyprland name contains
+# <pattern>: keyboard|<pattern>|<xkb-option>
+keyboard|magic-keyboard|ctrl:swap_rwin_rctl
