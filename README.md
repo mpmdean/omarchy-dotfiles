@@ -158,6 +158,22 @@ Note this doesn't touch `~/.config/mimeapps.list`, so double-clicking a text
 file in the file manager still opens whatever's set there (currently
 Neovim) - that's a separate, GUI-level default not covered by this repo yet.
 
+## World Clock cities (`data/world-clock.json`)
+
+Sets the cities in the World Clock bar widget (`omarchy.elsewhen`, in the
+`centerEnd` section): New York, London, Chicago, San Francisco, Tokyo and Paris.
+`scripts/set-world-clock.sh` applies them with
+`omarchy bar set omarchy.elsewhen cities ... --json`, and does nothing if
+the bar already shows the same list.
+
+Each entry needs a `name` and an IANA `zone`. `lat`, `lon` and `region` are
+optional and place the city on the widget's globe. To update the file after
+changing cities in the widget, run:
+
+```bash
+omarchy bar get omarchy.elsewhen cities | jq . > data/world-clock.json
+```
+
 ## iCloud Documents sync (`data/rclone-sync.txt`)
 
 Keeps iCloud Drive's `Documents` folder and `~/Documents` in sync **both

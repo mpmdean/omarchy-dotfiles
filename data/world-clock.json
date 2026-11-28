@@ -1,0 +1,29 @@
+[
+  {
+    "name": "New York",
+    "zone": "America/New_York"
+  },
+  {
+    "name": "London",
+    "zone": "Europe/London"
+  },
+  {
+    "name": "Chicago",
+    "zone": "America/Chicago"
+  },
+  {
+    "name": "San Francisco",
+    "zone": "America/Los_Angeles",
+    "lat": 37.77493,
+    "lon": -122.41942,
+    "region": "California, US"
+  },
+  {
+    "name": "Tokyo",
+    "zone": "Asia/Tokyo"
+  },
+  {
+    "name": "Paris",
+    "zone": "Europe/Paris"
+  }
+]
