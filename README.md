@@ -174,6 +174,21 @@ changing cities in the widget, run:
 omarchy bar get omarchy.elsewhen cities | jq . > data/world-clock.json
 ```
 
+## Boot screen (`data/plymouth.txt`)
+
+`scripts/set-plymouth.sh` sets the Plymouth boot screen with
+`omarchy plymouth set`: a white background, `#e85237` orange text, and the
+orange EDRIXS logo (`data/EDRIXS_logo_orange.png`). The orange was taken
+from the Retro Stripes Flare background, and the logo is a recolored copy
+of `data/EDRIXS_logo.png`. The same command also restyles the SDDM login
+screen with these colors and logo. It needs sudo. The step is skipped if
+the installed logo, background and text color already match.
+
+Change the `background|text|logo` line in `data/plymouth.txt` to use
+something else. Preview a change first with
+`omarchy plymouth preview <background> <text> <logo> preview.png`, and go
+back to the stock screen with `omarchy plymouth reset`.
+
 ## iCloud Documents sync (`data/rclone-sync.txt`)
 
 Keeps iCloud Drive's `Documents` folder and `~/Documents` in sync **both

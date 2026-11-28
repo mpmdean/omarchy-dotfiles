@@ -1,0 +1,3 @@
+# Plymouth boot screen (and SDDM login screen): background|text|logo
+# Colors are #RRGGBB; the logo path is relative to this repo.
+#ffffff|#e85237|data/EDRIXS_logo_orange.png
