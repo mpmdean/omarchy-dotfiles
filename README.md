@@ -174,6 +174,21 @@ changing cities in the widget, run:
 omarchy bar get omarchy.elsewhen cities | jq . > data/world-clock.json
 ```
 
+## Window corners (`data/window-corners.txt`)
+
+Rounds window corners to **12 px**, twice Omarchy's built-in "rounded"
+option (6 px). `scripts/set-window-corners.sh` writes a block marked
+`omarchy-dotfiles: window corners` into `~/.config/hypr/looknfeel.lua`.
+On a re-run it replaces that block instead of adding a second one, so
+changing the number in `data/window-corners.txt` and re-running updates it.
+Hyprland picks up the change as soon as the file is saved.
+
+`looknfeel.lua` loads after the theme, so the radius applies to every
+theme. Omarchy's own `omarchy hyprland corners rounded` setting loads
+later still and would force 6 px, so the script switches it back to
+`theme` if it's on. `omarchy hyprland corners sharp` still gives square
+corners.
+
 ## Boot screen (`data/plymouth.txt`)
 
 `scripts/set-plymouth.sh` sets the Plymouth boot screen with

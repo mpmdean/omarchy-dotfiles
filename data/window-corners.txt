@@ -1,0 +1,3 @@
+# Window corner radius in pixels (Hyprland decoration:rounding).
+# Omarchy's own "rounded" option is 6; 0 gives square corners.
+12
